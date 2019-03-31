@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block body %}
+    <h1>{{ category.name }}</h1>
+
+    <h2>Concepts</h2>
+    {% for concept in category.concepts %}
+        <h3>{{ concept.name }}</h3>
+        <p>{{ concept.explain }}</p>
+    {% endfor %}
+
+    <h2>Liens</h2>
+    {% for link in category.documentations %}
+        <a href="{{ link.url }}">{{ link.text }}</a> ({{ link.lang }}) - {{ link.source }}<br>
+    {% endfor %}
+
+    <h2>FAQ</h2>
+    {% for faq in category.faqs %}
+        <h3>{{ faq.question }}</h3>
+        <p>{{ faq.answer }}</p>
+    {% endfor %}
+
+
+{% endblock %}
