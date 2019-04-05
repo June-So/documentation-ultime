@@ -1,0 +1,76 @@
+[
+  {
+   "category": "Convolutional Neural Network",
+   "documentations" : [
+        { "lang": "FR", "text":"Comment les Réseaux de neurones à convolution fonctionnent", "source": "Medium @Charles Crouspeyre", "url": "https://medium.com/@CharlesCrouspeyre/comment-les-r%C3%A9seaux-de-neurones-%C3%A0-convolution-fonctionnent-b288519dbcf8" },
+        { "lang": "EN", "text": "Visualiser les couches", "source": "Code A Star", "url": "https://www.codeastar.com/visualize-convolutional-neural-network/" },
+        { "lang": "EN", "text":"Charger des images avec Keras", "source":"Machine Learning Mastery", "url":"https://machinelearningmastery.com/how-to-load-convert-and-save-images-with-the-keras-api/" }
+    ],
+    "concepts" : [
+      { "name": "Convolution" },
+      { "name": "Pooling" },
+      { "name": "Filtre" }
+    ],
+    "faq" : []
+},
+{
+   "category": "Série temporelle",
+   "documentations" : [
+     { "text": "Séries temporelles", "lang": "FR", "source": "Xavier Dupre", "url": "http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/_gs2a_timeseries.html"},
+     { "text": "Détails série temporelle", "lang": "FR", "source": "math u-psud", "url": "https://www.math.u-psud.fr/~goude/Materials/ProjetMLF/time_series.html"}
+    ],
+    "concepts" : [
+      { "name":"Persistence", "explain":"par exemple quand la météo du lendemain est identique à celle du jour"},
+      { "name":"techniques temporelles déterministes",
+        "explain":"L'analyse fréquentielle d’une série temporelle : un signal est approché par une somme de sinusoı̈dales (analyse de Fourier).<br>La décomposition d’une série temporelle en composantes tendancielle, cyclique, saisonnière et accidentelle.<br> La correction des variations saisonnières d’une série temporelle, qu’on étudiera, repose sur cette décomposition."}
+    ],
+    "faq" : []
+},
+{
+  "category": "Flask",
+  "documentations": [
+      { "text": "The Flask Mega-Tutorial", "lang":"EN","source":"Blog - Miguel Grinberg", "url":"https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world"},
+      { "text": "Tuto: Concevez un site avec Flask", "lang":"FR","source":"Openclassroom", "url":"https://openclassrooms.com/fr/courses/4425066-concevez-un-site-avec-flask"},
+      { "text": "Documentation Flask-sqlAlchemy", "lang":"EN","source":"Documentation Officielle", "url":"http://flask-sqlalchemy.pocoo.org/2.3/"},
+      { "text": "Documentation Flask-sqlAlchemy à sauvegarder en local", "lang":"EN", "source":"PDF Documentation Officielle", "url":"https://media.readthedocs.org/pdf/flask-sqlalchemy/stable/flask-sqlalchemy.pdf"}
+  ],
+  "concepts": [],
+  "faq": [
+    {"question": "Mes images ne s'affichent pas.",
+     "answer": "Vérifiez que le chemin qui mène à vos image est le bon : Allez sur la page contenant les images que vous souhaitez afficher.<br> Faites un CTRL+U et localisez vos balises <img >, le chemin de l'attribut href doit correspondre à l'emplacement de votre fichier.<br> Cliquez sur le lien pour voir le chemin complet apparaître dans la barre d'url.<br> L'adresse de votre serveur [http://127.0.0.1:5000/] est égal à [C:/Chemin/jusquau/dossier/racine/de/votre/projet].<br> Attention flask ne prend pas les chemin absolu ou relatif, vous devez passez par la fonction url_for() pour cela."}
+  ]
+},
+{
+  "category": "Base de données",
+  "documentations": [
+    { "text": "sqlAlchemy - Mapper ses classes", "lang": "EN", "source": "Documentation officielle", "url": "https://docs.sqlalchemy.org/en/latest/orm/tutorial.html"}
+  ],
+  "concepts": [
+    { "name": "Jointures"},
+    { "name": "Clé étrangère"}
+  ],
+  "faq": []
+},
+{
+  "category": "Regex : Expression Régulière",
+  "documentations": [
+    { "text": "Aide à la création de regex", "lang": "EN", "source": "Outils avec documentation", "url": "https://regex101.com/"}
+  ],
+  "concepts": [],
+  "faq": []
+},
+{
+  "category": "Entraînez-vous",
+  "documentations": [
+    { "text": "Competition Machine Learning/Deep Learning", "lang": "EN", "source": "Kaggle", "url": "https://www.kaggle.com/"},
+    { "text": "Cours et entrainements", "lang": "EN", "source": "SuperDataScience", "url": "https://www.superdatascience.com/"}
+  ],
+  "concepts": [],
+  "faq": [
+    {"question":"J'ai créé un fichier via kaggle, comment le récuperer ?",
+      "answer": "1 - Il est tout d'abord nécéssaire de commit votre kernel,<br> 2 - Retournez à la liste de vos kernels > choissisez le kernel concerné.<br> 3 - Dans la colonne de gauche clicquez sur \"output\", vous y trouverez vos fichiers et pourrez les téléchargers."
+
+    }
+  ]
+}
+]

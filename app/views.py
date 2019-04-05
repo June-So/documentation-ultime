@@ -6,7 +6,8 @@ from app.models import Documentation, Category
 @app.route('/')
 def documentation():
     categorys = Category.query.all()
-    print(categorys)
+    for category in categorys:
+        print(category.faqs)
     return render_template('documentation.html', categorys=categorys)
 
 
