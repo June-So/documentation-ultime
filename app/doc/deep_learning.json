@@ -32,17 +32,22 @@
       { "text": "The Flask Mega-Tutorial", "lang":"EN","source":"Blog - Miguel Grinberg", "url":"https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world"},
       { "text": "Tuto: Concevez un site avec Flask", "lang":"FR","source":"Openclassroom", "url":"https://openclassrooms.com/fr/courses/4425066-concevez-un-site-avec-flask"},
       { "text": "Documentation Flask-sqlAlchemy", "lang":"EN","source":"Documentation Officielle", "url":"http://flask-sqlalchemy.pocoo.org/2.3/"},
-      { "text": "Documentation Flask-sqlAlchemy à sauvegarder en local", "lang":"EN", "source":"PDF Documentation Officielle", "url":"https://media.readthedocs.org/pdf/flask-sqlalchemy/stable/flask-sqlalchemy.pdf"}
+      { "text": "Documentation Flask-sqlAlchemy à sauvegarder en local", "lang":"EN", "source":"PDF Documentation Officielle", "url":"https://media.readthedocs.org/pdf/flask-sqlalchemy/stable/flask-sqlalchemy.pdf"},
+      { "text": "Utiliser les templates flask", "lang":"FR", "source": "OpenClassroom", "url":"https://openclassrooms.com/fr/courses/1654786-creez-vos-applications-web-avec-flask/1655367-les-templates"},
+      { "text": "Secret Key Generator", "lang":"EN", "source":"miniwebtool", "url":"https://www.miniwebtool.com/django-secret-key-generator/"}
   ],
   "concepts": [],
   "faq": [
     {"question": "Mes images ne s'affichent pas.",
-     "answer": "Vérifiez que le chemin qui mène à vos image est le bon : Allez sur la page contenant les images que vous souhaitez afficher.<br> Faites un CTRL+U et localisez vos balises <img >, le chemin de l'attribut href doit correspondre à l'emplacement de votre fichier.<br> Cliquez sur le lien pour voir le chemin complet apparaître dans la barre d'url.<br> L'adresse de votre serveur [http://127.0.0.1:5000/] est égal à [C:/Chemin/jusquau/dossier/racine/de/votre/projet].<br> Attention flask ne prend pas les chemin absolu ou relatif, vous devez passez par la fonction url_for() pour cela."}
+     "answer": "Vérifiez que le chemin qui mène à vos image est le bon : Allez sur la page contenant les images que vous souhaitez afficher.<br> Faites un CTRL+U et localisez vos balises <img >, le chemin de l'attribut href doit correspondre à l'emplacement de votre fichier.<br> Cliquez sur le lien pour voir le chemin complet apparaître dans la barre d'url.<br> L'adresse de votre serveur [http://127.0.0.1:5000/] est égal à [C:/Chemin/jusquau/dossier/racine/de/votre/projet].<br> Attention flask ne prend pas les chemin absolu ou relatif, vous devez passez par la fonction url_for() pour cela."},
+    {"question": "Je n'arrive pas à installer de module pour connecter ma bdd MySQL",
+     "answer": "pip install PyMySQL<br> Dans votre fichier app/__init__.py ajouter :<br>import pymysql<br>pymysql.install_as_MySQLdb()"}
   ]
 },
 {
   "category": "Base de données",
   "documentations": [
+    {"text": "Si vous suivez correctement ce tuto, le SQL deviendra un jeu d'enfant", "lang":"FR", "source": "Openclassroom - Administrez vos base de données", "url": "https://openclassrooms.com/fr/courses/1959476-administrez-vos-bases-de-donnees-avec-mysql"},
     { "text": "sqlAlchemy - Mapper ses classes", "lang": "EN", "source": "Documentation officielle", "url": "https://docs.sqlalchemy.org/en/latest/orm/tutorial.html"}
   ],
   "concepts": [
