@@ -75,7 +75,7 @@
   "concepts": [],
   "faq": [
     {"question":"J'ai créé un fichier via kaggle, comment le récuperer ?",
-      "answer": "1 - Il est tout d'abord nécéssaire de commit votre kernel,<br> 2 - Retournez à la liste de vos kernels > choissisez le kernel concerné.<br> 3 - Dans la colonne de gauche clicquez sur \"output\", vous y trouverez vos fichiers et pourrez les téléchargers."
+      "answer": "1 - Il est tout d'abord nécéssaire de commit votre kernel,<br> 2 - Retournez à la liste de vos kernels > choissisez le kernel concerné.<br> 3 - Dans la colonne de gauche clicquez sur \"output\", vous y trouverez vos fichiers.<br> 4 - Clicquez sur le fichier désiré. Faîtes un clic-droit sur l'icone de téléchargement > Enregistrer le lien sous.. ou Enregistrer la cible du lien sous.."
     }
   ]
 },
