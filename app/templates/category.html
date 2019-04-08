@@ -15,11 +15,10 @@
         {% endfor %}
       </div>
 
-      <div class="p-3 col-4 border">
+      <div class="pxt-3 col-4 border" id="notions-content">
         <h2 class="text-center">Notions</h2>
         {% for concept in category.concepts %}
-        <h3>{{ concept.name }}</h3>
-        <p>{{ concept.explain }}</p>
+        <p><strong>{{ concept.name }}</strong> {{ concept.explain }}</p>
         {% endfor %}
       </div>
     </div>
@@ -29,8 +28,10 @@
         <h2 class="py-3">F.A.Q</h2>
         {% for faq in category.faqs %}
           <div class="row" id="d-{{ faq.id }}">
-            <h3 class="">{{ faq.question }}</h3>
-            <a class="btn btn-dark mx-3" data-toggle="collapse" href="#faq-{{ faq.id }}" role="button" aria-expanded="false" aria-controls="faq-{{ faq.id }}">Solution</a>
+            <h3 class="col-10 col-md-10">{{ faq.question }}</h3>
+            <div class="col-2 col-md-1">
+                <a class="btn btn-dark mx-3" data-toggle="collapse" href="#faq-{{ faq.id }}" role="button" aria-expanded="false" aria-controls="faq-{{ faq.id }}">Solution</a>
+            </div>
           </div>
           <div class="collapse" id="faq-{{ faq.id }}">
             <p class="px-4">{% autoescape false %}{{ faq.answer }}{% endautoescape %}</p>

@@ -8,13 +8,13 @@
         <div class="col-12 border border-dark mb-3">
             <!-- En-tête Catégorie -->
             <div class="row mb-0 p-2 bg-danger text-white">
-                <h2 class="col-11">{{ category.name }}</h2>
-                <a href="{{ url_for('focus', category=category.slug) }}" class="col-1"><button class="btn btn-dark">More</button></a>
+                <h2 class="col-9 col-md-10">{{ category.name }}</h2>
+                <a href="{{ url_for('focus', category=category.slug) }}" class="col-2 col-md-1"><button class="btn btn-dark">More</button></a>
             </div>
             <!-- DOCUMENTATIONS -->
             <p class="p-3 m-0">
                 {% for link in category.documentations %}
-                    <a href="{{ link.url }}">{{ link.text }}</a> ({{ link.lang }}) - {{ link.source }}<br>
+                    <a href="{{ link.url }}" class="link-doc">{{ link.text }}</a> ({{ link.lang }}) - {{ link.source }}<br>
                 {% endfor %}
             </p>
             <!-- FAQ -->

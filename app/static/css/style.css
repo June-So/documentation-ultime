@@ -21,3 +21,15 @@ a.link-faq{
   color: #e04a5a;
   font-weight: bold;
 }
+
+#notions-content p{
+  font-size: 13px;
+}
+
+.link-doc{
+  color: #3251ce;
+}
+
+.link-doc:hover{
+  color: #203b87;
+}

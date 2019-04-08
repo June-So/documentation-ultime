@@ -39,8 +39,8 @@
   "concepts": [],
   "faq": [
     {"question": "Mes images ne s'affichent pas.",
-     "answer": "Vérifiez que le chemin qui mène à vos image est le bon : Allez sur la page contenant les images que vous souhaitez afficher.<br> Faites un CTRL+U et localisez vos balises <img >, le chemin de l'attribut href doit correspondre à l'emplacement de votre fichier.<br> Cliquez sur le lien pour voir le chemin complet apparaître dans la barre d'url.<br> L'adresse de votre serveur [http://127.0.0.1:5000/] est égal à [C:/Chemin/jusquau/dossier/racine/de/votre/projet].<br> Attention flask ne prend pas les chemin absolu ou relatif, vous devez passez par la fonction url_for() pour cela."},
-    {"question": "Je n'arrive pas à installer de module pour connecter ma bdd MySQL",
+     "answer": "Vérifiez que le chemin qui mène à vos images est le bon : Allez sur la page contenant les images que vous souhaitez afficher.<br> Faites un CTRL+U et localisez vos balises <img > (le chemin de l'attribut href doit correspondre à l'emplacement de votre fichier.)<br> Cliquez sur le lien pour voir le chemin complet apparaître dans la barre d'url.<br> L'adresse de votre serveur [http://127.0.0.1:5000/] est égal à [C:/Chemin/jusquau/dossier/racine/de/votre/projet].<br> Attention flask ne prend pas les chemin absolu ou relatif, vous devez passez par la fonction url_for() pour cela."},
+    {"question": "Je n'arrive pas à installer de modules pour connecter ma bdd MySQL",
      "answer": "pip install PyMySQL<br> Dans votre fichier app/__init__.py ajouter :<br>import pymysql<br>pymysql.install_as_MySQLdb()"}
   ]
 },
@@ -67,15 +67,25 @@
 {
   "category": "Entraînez-vous",
   "documentations": [
-    { "text": "Competition Machine Learning/Deep Learning", "lang": "EN", "source": "Kaggle", "url": "https://www.kaggle.com/"},
-    { "text": "Cours et entrainements", "lang": "EN", "source": "SuperDataScience", "url": "https://www.superdatascience.com/"}
+    { "source": "Competition Machine Learning/Deep Learning", "lang": "EN", "text": "Kaggle", "url": "https://www.kaggle.com/"},
+    { "source": "Exercices et entraînements multi-langages", "lang": "EN", "text": "Codewars", "url": "https://www.codewars.com/"},
+    { "source": "Exercices et entraînements multi-langages", "lang": "EN", "text": "HackerRank", "url": "https://www.hackerrank.com/"},
+    { "source": "Entraînements programmation multi-langage à travers des jeux", "lang":"MULTI", "text":"Codingame", "url":"https://www.codingame.com/start" }
   ],
   "concepts": [],
   "faq": [
     {"question":"J'ai créé un fichier via kaggle, comment le récuperer ?",
       "answer": "1 - Il est tout d'abord nécéssaire de commit votre kernel,<br> 2 - Retournez à la liste de vos kernels > choissisez le kernel concerné.<br> 3 - Dans la colonne de gauche clicquez sur \"output\", vous y trouverez vos fichiers et pourrez les téléchargers."
-
     }
   ]
+},
+{
+  "category": "Python",
+  "documentations": [
+    {"source": "Chris Albon", "lang":"EN", "text": "Référence ultime d'exemples python pour le machine learning", "url":"https://chrisalbon.com/" },
+    {"text": "Référence ultime pour la visualisation de vos données", "lang":"EN","source":"Graph gallery","url":"https://python-graph-gallery.com/"}
+  ],
+  "concepts": [],
+  "faq": []
 }
 ]

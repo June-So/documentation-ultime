@@ -60,7 +60,7 @@ def db_init(db):
     db.drop_all()
     db.create_all()
 
-    file = open('app/doc/deep_learning.json', encoding='utf-8')
+    file = open('app/doc/documentations.json', encoding='utf-8')
     doc_json = json.load(file)
     for x in doc_json:
         # -- ADD CATEGORY
