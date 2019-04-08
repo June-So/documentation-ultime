@@ -28,7 +28,7 @@
       <div class="col-12">
         <h2 class="py-3">F.A.Q</h2>
         {% for faq in category.faqs %}
-          <div class="row">
+          <div class="row" id="d-{{ faq.id }}">
             <h3 class="">{{ faq.question }}</h3>
             <a class="btn btn-dark mx-3" data-toggle="collapse" href="#faq-{{ faq.id }}" role="button" aria-expanded="false" aria-controls="faq-{{ faq.id }}">Solution</a>
           </div>

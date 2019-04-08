@@ -2,29 +2,33 @@
 
 {% block body %}
     <h1 class="text-center">DOCUMENTATION ULTIME</h1>
+
     <div class="row">
-    {% for category in categorys %}
-    <div class="col-12 border border-dark mb-3">
-      <div class="row mb-0 p-2 bg-danger text-white">
-        <h2 class="col-11">{{ category.name }}</h2>
-        <a href="{{ url_for('focus', category=category.slug) }}" class="col-1"><button class="btn btn-dark">More</button></a>
-      </div>
-      <p class="p-3 m-0">
-        {% for link in category.documentations %}
-            <a href="{{ link.url }}">{{ link.text }}</a> ({{ link.lang }}) - {{ link.source }}<br>
+        {% for category in categorys %}
+        <div class="col-12 border border-dark mb-3">
+            <!-- En-tête Catégorie -->
+            <div class="row mb-0 p-2 bg-danger text-white">
+                <h2 class="col-11">{{ category.name }}</h2>
+                <a href="{{ url_for('focus', category=category.slug) }}" class="col-1"><button class="btn btn-dark">More</button></a>
+            </div>
+            <!-- DOCUMENTATIONS -->
+            <p class="p-3 m-0">
+                {% for link in category.documentations %}
+                    <a href="{{ link.url }}">{{ link.text }}</a> ({{ link.lang }}) - {{ link.source }}<br>
+                {% endfor %}
+            </p>
+            <!-- FAQ -->
+            {% if category.faqs %}
+                <div class="px-3">
+                    <h3>F.A.Q</h3>
+                    <p>
+                       {% for faq in category.faqs %}
+                           <a href="{{ url_for('focus', category=category.slug) }}#d-{{ faq.id }}" class="link-faq">{{ faq.question }}</a><br>
+                       {% endfor %}
+                    </p>
+                </div>
+            {% endif %}
+        </div>
         {% endfor %}
-      </p>
-      {% if category.faqs %}
-      <div class="px-3">
-        <h3>F.A.Q</h3>
-        <p>
-          {% for faq in category.faqs %}
-            {{ faq.question }}
-          {% endfor %}
-        </p>
-      </div>
-      {% endif %}
-    </div>
-    {% endfor %}
     </div>
 {% endblock %}
