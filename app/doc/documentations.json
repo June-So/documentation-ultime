@@ -3,8 +3,10 @@
    "category": "Convolutional Neural Network",
    "documentations" : [
         { "lang": "FR", "text":"Comment les Réseaux de neurones à convolution fonctionnent", "source": "Medium @Charles Crouspeyre", "url": "https://medium.com/@CharlesCrouspeyre/comment-les-r%C3%A9seaux-de-neurones-%C3%A0-convolution-fonctionnent-b288519dbcf8" },
+        { "lang": "MULTI", "text":"Pense-bête de réseaux de neurones convolutionnels", "source":"stanford.edu", "url":"https://stanford.edu/~shervine/l/fr/teaching/cs-230/pense-bete-reseaux-neurones-convolutionnels" },
         { "lang": "EN", "text": "Visualiser les couches", "source": "Code A Star", "url": "https://www.codeastar.com/visualize-convolutional-neural-network/" },
-        { "lang": "EN", "text":"Charger des images avec Keras", "source":"Machine Learning Mastery", "url":"https://machinelearningmastery.com/how-to-load-convert-and-save-images-with-the-keras-api/" }
+        { "lang": "EN", "text":"Charger des images avec Keras", "source":"Machine Learning Mastery", "url":"https://machinelearningmastery.com/how-to-load-convert-and-save-images-with-the-keras-api/" },
+        { "lang": "EN", "text":"MNIST visualisation CNN", "source": "Demo web", "url": "http://scs.ryerson.ca/~aharley/vis/conv/flat.html"}
     ],
     "concepts" : [
       { "name": "Convolution" },
@@ -12,6 +14,19 @@
       { "name": "Filtre" }
     ],
     "faq" : []
+},
+{
+  "category": "Natural Processing Language",
+  "documentations": [],
+  "concepts": [
+    { "name": "Word Embbeding", "explain": "Technique permettant d'obtenir des vecteurs qui conservent la similarité contextuelle des mots."},
+    { "name": "Sentence Boundary Disambiguation", "explain": "Segmentation de texte en phrases. Il s'agit de déterminer où commence et où s'arrête une phrase."},
+    { "name": "Tokenisation", "explain": "Principe de fractionner un texte en unité plus petites appelées tokens."},
+    { "name": "Topic Modeling", "explain": "Approche non supervisée où l’on essaye de faire apparaître les topics principaux d’un ensemble de textes puis de relier les topics aux textes." },
+    { "name": "Part-Of-Speech Tagging"},
+    { "name": "Names-Entity Recognition"}
+  ],
+  "faq" : []
 },
 {
    "category": "Série temporelle",
