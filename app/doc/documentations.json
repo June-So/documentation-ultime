@@ -17,14 +17,16 @@
 },
 {
   "category": "Natural Processing Language",
-  "documentations": [],
+  "documentations": [
+    {"text": "Introduction au NLP (Partie I)", "source": "ekkino", "lang":"FR", "url": "https://www.ekino.com/articles/introduction-nlp-partie-i"}
+  ],
   "concepts": [
     { "name": "Word Embbeding", "explain": "Technique permettant d'obtenir des vecteurs qui conservent la similarité contextuelle des mots."},
     { "name": "Sentence Boundary Disambiguation", "explain": "Segmentation de texte en phrases. Il s'agit de déterminer où commence et où s'arrête une phrase."},
     { "name": "Tokenisation", "explain": "Principe de fractionner un texte en unité plus petites appelées tokens."},
     { "name": "Topic Modeling", "explain": "Approche non supervisée où l’on essaye de faire apparaître les topics principaux d’un ensemble de textes puis de relier les topics aux textes." },
-    { "name": "Part-Of-Speech Tagging"},
-    { "name": "Names-Entity Recognition"}
+    { "name": "Part-Of-Speech Tagging","explain": "Consiste à associer à chaque mot d'un texte sa classe morphosyntaxique (nom, verbe, adjectif..) à partir de connaissances lexicales"},
+    { "name": "Names-Entity Recognition", "explain": "Reconnaitre un certains type de concepts catégorisables (Noms propre, quantité, distances, valeurs, dates)"}
   ],
   "faq" : []
 },
@@ -74,7 +76,9 @@
 {
   "category": "Regex : Expression Régulière",
   "documentations": [
-    { "text": "Aide à la création de regex", "lang": "EN", "source": "Outils avec documentation", "url": "https://regex101.com/"}
+    { "text": "Aide à la création de regex", "lang": "EN", "source": "Outils avec documentation", "url": "https://regex101.com/"},
+    { "text": "Apprenez à faire des regex (tuto non-testé)", "lang": "FR", "source": "OpenClassroom - Apprenez à programmer en python", "url": "https://openclassrooms.com/fr/courses/235344-apprenez-a-programmer-en-python/233857-manipulez-les-expressions-regulieres"},
+    { "text": "Apprenez à faire des regex (version PHP, mais recommandé)", "lang": "FR", "source": "OpenClassroom - Concevez votre site web avec PHP et MySQL", "url": "https://openclassrooms.com/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/916990-les-expressions-regulieres-partie-1-2"}
   ],
   "concepts": [],
   "faq": []

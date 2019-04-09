@@ -33,3 +33,10 @@ a.link-faq{
 .link-doc:hover{
   color: #203b87;
 }
+
+/* NO STYLE FOR H1 LINK */
+a h1, a h1:link, a h1:visited, a h1:hover, a h1:active {
+  text-decoration: none !important;
+  border-bottom-style: none;
+  color: black;
+}
