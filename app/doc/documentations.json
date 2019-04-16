@@ -18,7 +18,8 @@
 {
   "category": "Natural Processing Language",
   "documentations": [
-    {"text": "Introduction au NLP (Partie I)", "source": "ekkino", "lang":"FR", "url": "https://www.ekino.com/articles/introduction-nlp-partie-i"}
+    {"text": "Introduction au NLP (Partie I)", "source": "ekkino", "lang":"FR", "url": "https://www.ekino.com/articles/introduction-nlp-partie-i"},
+    {"text": "Mini-tuto preprocesing", "source": "ActuIa", "lang": "FR", "url":"https://www.actuia.com/contribution/victorbigand/tutoriel-tal-pour-les-debutants-classification-de-texte/"}
   ],
   "concepts": [
     { "name": "Word Embbeding", "explain": "Technique permettant d'obtenir des vecteurs qui conservent la similarité contextuelle des mots."},
@@ -42,6 +43,15 @@
         "explain":"L'analyse fréquentielle d’une série temporelle : un signal est approché par une somme de sinusoı̈dales (analyse de Fourier).<br>La décomposition d’une série temporelle en composantes tendancielle, cyclique, saisonnière et accidentelle.<br> La correction des variations saisonnières d’une série temporelle, qu’on étudiera, repose sur cette décomposition."}
     ],
     "faq" : []
+},
+{
+    "category": "Data Mining",
+    "documentations": [
+      { "text": "Documentation Selenium", "lang": "EN", "source": "Documentation officielle", "url": "https://selenium-python.readthedocs.io/index.html" },
+      { "text": "Syntaxe Xpath", "lang": "EN", "source": "W3Schools", "url": "https://www.w3schools.com/xml/xpath_syntax.asp"}
+    ],
+    "concepts": [],
+    "faq": []
 },
 {
   "category": "Flask",
