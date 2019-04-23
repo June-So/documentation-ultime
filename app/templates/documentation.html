@@ -13,9 +13,11 @@
             </div>
             <!-- DOCUMENTATIONS -->
             <p class="p-3 m-0">
+              {% autoescape false %}
                 {% for link in category.documentations %}
                     <a href="{{ link.url }}" class="link-doc">{{ link.text }}</a> ({{ link.lang }}) - {{ link.source }}<br>
                 {% endfor %}
+              {% endautoescape %}
             </p>
             <!-- FAQ -->
             {% if category.faqs %}

@@ -19,7 +19,7 @@
   "category": "Natural Processing Language",
   "documentations": [
     {"text": "Introduction au NLP (Partie I)", "source": "ekkino", "lang":"FR", "url": "https://www.ekino.com/articles/introduction-nlp-partie-i"},
-    {"text": "Mini-tuto preprocesing", "source": "ActuIa", "lang": "FR", "url":"https://www.actuia.com/contribution/victorbigand/tutoriel-tal-pour-les-debutants-classification-de-texte/"}
+    {"text": "Mini-tuto preprocessing", "source": "ActuIa", "lang": "FR", "url":"https://www.actuia.com/contribution/victorbigand/tutoriel-tal-pour-les-debutants-classification-de-texte/"}
   ],
   "concepts": [
     { "name": "Word Embbeding", "explain": "Technique permettant d'obtenir des vecteurs qui conservent la similarité contextuelle des mots."},
@@ -54,24 +54,6 @@
     "faq": []
 },
 {
-  "category": "Flask",
-  "documentations": [
-      { "text": "The Flask Mega-Tutorial", "lang":"EN","source":"Blog - Miguel Grinberg", "url":"https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world"},
-      { "text": "Tuto: Concevez un site avec Flask", "lang":"FR","source":"Openclassroom", "url":"https://openclassrooms.com/fr/courses/4425066-concevez-un-site-avec-flask"},
-      { "text": "Documentation Flask-sqlAlchemy", "lang":"EN","source":"Documentation Officielle", "url":"http://flask-sqlalchemy.pocoo.org/2.3/"},
-      { "text": "Documentation Flask-sqlAlchemy à sauvegarder en local", "lang":"EN", "source":"PDF Documentation Officielle", "url":"https://media.readthedocs.org/pdf/flask-sqlalchemy/stable/flask-sqlalchemy.pdf"},
-      { "text": "Utiliser les templates flask", "lang":"FR", "source": "OpenClassroom", "url":"https://openclassrooms.com/fr/courses/1654786-creez-vos-applications-web-avec-flask/1655367-les-templates"},
-      { "text": "Secret Key Generator", "lang":"EN", "source":"miniwebtool", "url":"https://www.miniwebtool.com/django-secret-key-generator/"}
-  ],
-  "concepts": [],
-  "faq": [
-    {"question": "Mes images ne s'affichent pas.",
-     "answer": "Vérifiez que le chemin qui mène à vos images est le bon : Allez sur la page contenant les images que vous souhaitez afficher.<br> Faites un CTRL+U et localisez vos balises <img > (le chemin de l'attribut href doit correspondre à l'emplacement de votre fichier.)<br> Cliquez sur le lien pour voir le chemin complet apparaître dans la barre d'url.<br> L'adresse de votre serveur [http://127.0.0.1:5000/] est égal à [C:/Chemin/jusquau/dossier/racine/de/votre/projet].<br> Attention flask ne prend pas les chemin absolu ou relatif, vous devez passez par la fonction url_for() pour cela."},
-    {"question": "Je n'arrive pas à installer de modules pour connecter ma bdd MySQL",
-     "answer": "pip install PyMySQL<br> Dans votre fichier app/__init__.py ajouter :<br>import pymysql<br>pymysql.install_as_MySQLdb()"}
-  ]
-},
-{
   "category": "Base de données",
   "documentations": [
     {"text": "Si vous suivez correctement ce tuto, le SQL deviendra un jeu d'enfant", "lang":"FR", "source": "Openclassroom - Administrez vos base de données", "url": "https://openclassrooms.com/fr/courses/1959476-administrez-vos-bases-de-donnees-avec-mysql"},
@@ -84,11 +66,55 @@
   "faq": []
 },
 {
+    "category": "Développement Web",
+    "documentations": [
+      { "text": "Tuto HTML/CSS, suivez le pour apprendre toutes les bases nécéssaires.", "lang": "FR", "source": "OpenClassroom -  Apprenez à créer votre site web avec HTML5 et CSS3 ", "url": "https://openclassrooms.com/fr/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3" },
+      { "text": "Transmettez des données avec l'URL", "lang": "FR", "source": "OpenClassroom -  Concevez votre site web avec PHP et MySQL", "url": "https://openclassrooms.com/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/912799-transmettez-des-donnees-avec-lurl" },
+      { "text": "Transmettez des données avec les formulaires", "lang": "FR", "source": "OpenClassroom -  Concevez votre site web avec PHP et MySQL", "url": "https://openclassrooms.com/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/913099-transmettez-des-donnees-avec-les-formulaires" }
+    ],
+    "concepts": [],
+    "faq": []
+},
+{
+  "category": "Flask",
+  "documentations": [
+      { "text": "The Flask Mega-Tutorial", "lang":"EN","source":"Blog - Miguel Grinberg", "url":"https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world"},
+      { "text": "Tuto: Concevez un site avec Flask", "lang":"FR","source":"Openclassroom", "url":"https://openclassrooms.com/fr/courses/4425066-concevez-un-site-avec-flask"},
+      { "text": "Documentation Flask-sqlAlchemy", "lang":"EN","source":"Documentation Officielle [<a href='https://media.readthedocs.org/pdf/flask-sqlalchemy/stable/flask-sqlalchemy.pdf'>PDF</a>]", "url":"http://flask-sqlalchemy.pocoo.org/2.3/"},
+      { "text": "Utiliser les templates flask", "lang":"FR", "source": "OpenClassroom", "url":"https://openclassrooms.com/fr/courses/1654786-creez-vos-applications-web-avec-flask/1655367-les-templates"},
+      { "text": "Secret Key Generator", "lang":"EN", "source":"miniwebtool", "url":"https://www.miniwebtool.com/django-secret-key-generator/"}
+  ],
+  "concepts": [],
+  "faq": [
+    {"question": "Mes images ne s'affichent pas.",
+     "answer": "Vérifiez que le chemin qui mène à vos images est le bon : Allez sur la page contenant les images que vous souhaitez afficher.<br> Faites un CTRL+U et localisez vos balises <img > (le chemin de l'attribut href doit correspondre à l'emplacement de votre fichier.)<br> Cliquez sur le lien pour voir le chemin complet apparaître dans la barre d'url.<br> L'adresse de votre serveur [http://127.0.0.1:5000/] est égal à [C:/Chemin/jusquau/dossier/racine/de/votre/projet].<br> Attention flask ne prend pas les chemin absolu ou relatif, vous devez passez par la fonction url_for() pour cela."},
+    {"question": "Je n'arrive pas à installer de modules pour connecter ma bdd MySQL",
+     "answer": "pip install PyMySQL<br> Dans votre fichier app/__init__.py ajouter :<br>import pymysql<br>pymysql.install_as_MySQLdb()"}
+  ]
+},
+{
+  "category": "Django",
+  "documentations": [
+    { "text": "Tutoriel Django", "lang": "FR", "source": "Documentation Officielle", "url":"https://docs.djangoproject.com/fr/2.2/intro/"}
+  ],
+  "concepts": [],
+  "faq": []
+},
+{
   "category": "Regex : Expression Régulière",
   "documentations": [
     { "text": "Aide à la création de regex", "lang": "EN", "source": "Outils avec documentation", "url": "https://regex101.com/"},
     { "text": "Apprenez à faire des regex (tuto non-testé)", "lang": "FR", "source": "OpenClassroom - Apprenez à programmer en python", "url": "https://openclassrooms.com/fr/courses/235344-apprenez-a-programmer-en-python/233857-manipulez-les-expressions-regulieres"},
     { "text": "Apprenez à faire des regex (version PHP, mais recommandé)", "lang": "FR", "source": "OpenClassroom - Concevez votre site web avec PHP et MySQL", "url": "https://openclassrooms.com/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/916990-les-expressions-regulieres-partie-1-2"}
+  ],
+  "concepts": [],
+  "faq": []
+},
+{
+  "category": "Python",
+  "documentations": [
+    {"source": "Chris Albon", "lang":"EN", "text": "Référence ultime d'exemples python pour le machine learning", "url":"https://chrisalbon.com/" },
+    {"text": "Référence ultime pour la visualisation de vos données", "lang":"EN","source":"Graph gallery","url":"https://python-graph-gallery.com/"}
   ],
   "concepts": [],
   "faq": []
@@ -107,14 +133,5 @@
       "answer": "1 - Il est tout d'abord nécéssaire de commit votre kernel,<br> 2 - Retournez à la liste de vos kernels > choissisez le kernel concerné.<br> 3 - Dans la colonne de gauche clicquez sur \"output\", vous y trouverez vos fichiers.<br> 4 - Clicquez sur le fichier désiré. Faîtes un clic-droit sur l'icone de téléchargement > Enregistrer le lien sous.. ou Enregistrer la cible du lien sous.."
     }
   ]
-},
-{
-  "category": "Python",
-  "documentations": [
-    {"source": "Chris Albon", "lang":"EN", "text": "Référence ultime d'exemples python pour le machine learning", "url":"https://chrisalbon.com/" },
-    {"text": "Référence ultime pour la visualisation de vos données", "lang":"EN","source":"Graph gallery","url":"https://python-graph-gallery.com/"}
-  ],
-  "concepts": [],
-  "faq": []
 }
 ]
