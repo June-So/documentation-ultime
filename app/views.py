@@ -1,6 +1,7 @@
 from app import app
 from flask import render_template
 from app.models import Documentation, Category, Flux
+from sqlalchemy import desc
 
 
 @app.route('/')
@@ -11,7 +12,7 @@ def documentation():
 
 @app.route('/flux')
 def flux():
-    news = Flux.query.order_by('date_create').all()
+    news = Flux.query.order_by(desc('date_create')).all()
     return render_template('flux.html', news=news)
 
 

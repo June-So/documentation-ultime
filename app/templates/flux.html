@@ -9,7 +9,7 @@
         <div class="col-12">
         {% if new.type_flux.name == 'DOCUMENTATION' %}
             {% set documentation = get_documentation(new.objet_id) %}
-            {{ new.date_create.strftime('%d/%m/%Y') }} - <a href="{{ url_for('focus', category=documentation.category.slug) }}" class="link-category">{{ documentation.category.name }}</a> >
+            {{ new.date_create.strftime('%d/%m/%y') }} - <a href="{{ url_for('focus', category=documentation.category.slug) }}" class="link-category">{{ documentation.category.name }}</a> >
             <i class="{{ documentation.tag.i_class }}"></i>
             <a href="{{ documentation.url }}" class="link-doc">{{ documentation.text }}</a>  ({{ documentation.lang }}) - {{ documentation.source }}
         {% endif %}

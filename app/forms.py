@@ -10,13 +10,21 @@ class CategoryForm(Form):
 
 
 class DocumentationForm(Form):
-    category_choices = [(category.id, category.name) for category in Category.query.order_by('name')]
     lang_choices = [('EN', 'EN'), ('FR', 'FR'), ('MULTI', 'MULTI')]
-    tag_choices = [(tag.id, tag.name) for tag in Tag.query.order_by('name')]
-    category = SelectField('catégorie', choices=category_choices, coerce=int)
+    category = SelectField('catégorie', coerce=int)
     lang = SelectField('langue', choices=lang_choices)
     url = StringField('url', validators=[DataRequired()])
     url_text = StringField('url_text', validators=[DataRequired()])
     source = StringField('source', validators=[DataRequired()])
-    tag = SelectField('tag', choices=tag_choices, coerce=int)
+    tag = SelectField('tag', coerce=int)
     submit = SubmitField('Enregistrer')
+
+    @classmethod
+    def new(cls):
+        # Instantiate the form
+        form = cls()
+
+        # Update the choices for the agency field
+        form.category.choices = [(category.id, category.name) for category in Category.query.order_by('name')]
+        form.tag.choices = [(tag.id, tag.name) for tag in Tag.query.order_by('name')]
+        return form

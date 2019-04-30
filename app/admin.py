@@ -17,7 +17,7 @@ def register():
 def add_documentation():
     categorys = Category.query.all()
 
-    form_doc = DocumentationForm()
+    form_doc = DocumentationForm.new()
     if form_doc.validate_on_submit():
         # -- add new Documentation
         category = Category.query.get(form_doc.category.data)
