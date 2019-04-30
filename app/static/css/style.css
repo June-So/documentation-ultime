@@ -40,3 +40,13 @@ a h1, a h1:link, a h1:visited, a h1:hover, a h1:active {
   border-bottom-style: none;
   color: black;
 }
+
+a.link-category{
+  color:  #171616;
+  font-weight: bold;
+}
+
+a.link-category:hover{
+    color: #535353;
+    text-decoration: none;
+}

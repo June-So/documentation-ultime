@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block body %}
+    <h1 class="text-center">Alimenter la Documentation</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for category, message in messages %}
+          <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <div class="row">
+        <div class="col-4">
+            <h2>Catégories</h2>
+            <ul>
+            {% for category in categorys %}
+                <li>
+                    {{ category.name }}
+                </li>
+            {% endfor %}
+            </ul>
+            <form method="POST" action="">
+                {{ form_category.csrf_token }}
+                {{ form_category.name.label }} {{ form_category.name(size=20) }}
+                {{ form_category.submit() }}
+            </form>
+        </div>
+
+        <div class="col-8">
+            <h2>Documentation & Ressources</h2>
+            <form method="POST" action="" class="form form-horizontal">
+                {{ form_doc.csrf_token }}
+                <div class="form-row">
+                    <div class="col">
+                        {{ wtf.form_field(form_doc.category) }}
+                    </div>
+                    <div class="col">
+                        {{ wtf.form_field(form_doc.tag) }}
+                    </div>
+                </div>
+                {{ wtf.form_field(form_doc.url_text) }}
+                {{ wtf.form_field(form_doc.url) }}
+                <div class="form-row">
+                    <div class="col">
+                        {{ wtf.form_field(form_doc.source) }}
+                    </div>
+                    <div class="col">
+                        {{ wtf.form_field(form_doc.lang) }}
+                    </div>
+                </div>
+                {{ form_doc.submit() }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

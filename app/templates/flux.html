@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block body %}
+  <nav class="navbar mb-2 row navbar-dark bg-danger text-white">
+    <a href="{{ url_for('documentation') }} " class="navbar-brand text-center"><i class="fas fa-home fa-3x"></i><br> Retour</a>
+    <h1 class="navbar-text text-white mx-auto">Flux d'actualité du site</h1>
+  </nav>
+    {% for new in news %}
+    <div class="row border py-3 px-2">
+        <div class="col-12">
+        {% if new.type_flux.name == 'DOCUMENTATION' %}
+            {% set documentation = get_documentation(new.objet_id) %}
+            {{ new.date_create.strftime('%d/%m/%Y') }} - <a href="{{ url_for('focus', category=documentation.category.slug) }}" class="link-category">{{ documentation.category.name }}</a> >
+            <i class="{{ documentation.tag.i_class }}"></i>
+            <a href="{{ documentation.url }}" class="link-doc">{{ documentation.text }}</a>  ({{ documentation.lang }}) - {{ documentation.source }}
+        {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

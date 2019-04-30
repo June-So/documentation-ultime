@@ -2,7 +2,10 @@
 
 {% block body %}
     <a href=""><h1 class="text-center">DOCUMENTATION ULTIME</h1></a>
-
+    <p class="text-right">
+        <i class="fas fa-star"></i>
+        <a class="" href="{{ url_for('flux') }}">Flux d'actualité du site</a>
+    </p>
     <div class="row">
         {% for category in categorys %}
         <div class="col-12 border border-dark mb-3">
@@ -15,7 +18,7 @@
             <p class="p-3 m-0">
               {% autoescape false %}
                 {% for link in category.documentations %}
-                    <a href="{{ link.url }}" class="link-doc">{{ link.text }}</a> ({{ link.lang }}) - {{ link.source }}<br>
+                <i class="{{ link.tag.i_class }}"></i> <a href="{{ link.url }}" class="link-doc">{{ link.text }}</a> ({{ link.lang }}) - {{ link.source }}<br>
                 {% endfor %}
               {% endautoescape %}
             </p>
@@ -33,4 +36,8 @@
         </div>
         {% endfor %}
     </div>
+    <p class="text-right">
+        <i class="fas fa-star"></i>
+        <a class="" href="{{ url_for('flux') }}">Flux d'actualité du site</a>
+    </p>
 {% endblock %}

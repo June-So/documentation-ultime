@@ -8,19 +8,15 @@
   </nav>
 
     <div class="row">
-      <div class="p-3 col-8">
+            <div class="p-3 col-12">
         <h2>Liens</h2>
+        {% autoescape false %}
         {% for link in category.documentations %}
-            <a href="{{ link.url }}">{{ link.text }}</a> ({{ link.lang }}) - {{ link.source }}<br>
+            <i class="{{ link.tag.i_class }}"></i> <a href="{{ link.url }}">{{ link.text }}</a> ({{ link.lang }}) - {{ link.source }}<br>
         {% endfor %}
+        {% endautoescape %}
       </div>
 
-      <div class="pxt-3 col-4 border" id="notions-content">
-        <h2 class="text-center">Notions</h2>
-        {% for concept in category.concepts %}
-        <p><strong>{{ concept.name }}</strong> {{ concept.explain }}</p>
-        {% endfor %}
-      </div>
     </div>
 
     <div class="row">
@@ -37,6 +33,15 @@
             <p class="px-4">{% autoescape false %}{{ faq.answer }}{% endautoescape %}</p>
           </div>
         {% endfor %}
+      </div>
+
+      {% if category.concepts %}
+      <div class="pxt-3 col-12 border" id="notions-content">
+        <h2 class="text-center">Notions</h2>
+        {% for concept in category.concepts %}
+        <p><strong>{{ concept.name }}</strong> {{ concept.explain }}</p>
+        {% endfor %}
+        {% endif %}
       </div>
     </div>
 
