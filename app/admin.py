@@ -11,6 +11,7 @@ user_manager = UserManager(app, db, User)
 def register():
     return render_template('admin/register.html')
 
+
 @app.route('/admin/', methods=('GET', 'POST'))
 @roles_required('Admin')
 def add_documentation():
@@ -50,6 +51,7 @@ def add_documentation():
 
 
 @app.route('/admin/remove-category-<id>')
+@roles_required('Admin')
 def remove_category(id):
     category = Category.query.get(id)
     db.session.delete(category)
@@ -57,10 +59,13 @@ def remove_category(id):
     return redirect(url_for('add_documentation'))
 
 
+
 """ 
 Initialisation de la base de données existante en V.0
+"""
 @app.route('/admin/init-db')
+@roles_required('Admin')
 def init_db():
     db_init(db)
     return redirect(url_for('add_documentation'))
-"""
+
