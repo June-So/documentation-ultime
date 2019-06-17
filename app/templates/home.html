@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h2>Accueil</h2>
+    <p> Bienvenue dans la documentation ultime ! Ce site recense les tutos essentiels à l'apprentissage des languages informatiques, des ressources pour la compréhension de concepts.</p>
+
+    <div class="row">
+        {% for section in sections %}
+        <div class="col-4">
+            <h3>{{ section.id }} - <a href="{{ url_for('section',  section_slug=section.slug ) }}">{{ section.name }}</a></h3>
+            <ul>
+            {% for category in section.categorys %}
+                <li>{{ category.id }} - {{ category.name }}
+                    <ul>
+                        {% for documentation in category.documentations %}
+                        <li>{{ documentation.text }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

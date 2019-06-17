@@ -4,10 +4,24 @@ import json
 import datetime
 from flask_user import UserMixin
 
+
+class Section(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(42), nullable=False, unique=True)
+    slug = db.Column(db.String(42), nullable=False)
+    categorys = db.relationship('Category', backref='section', lazy=True)
+
+    def __init__(self, name, slug):
+        self.name = name
+        self.slug = slug
+
+
+
 class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(42), nullable=False, unique=True)
     slug = db.Column(db.String(42), nullable=False)
+    section_id = db.Column(db.Integer, db.ForeignKey('section.id'), nullable=True)
     documentations = db.relationship('Documentation', backref='category', lazy=True)
     concepts = db.relationship('Concept', backref='category', lazy=True)
     faqs = db.relationship('Faq', backref='category', lazy=True)
@@ -116,35 +130,3 @@ class UserRoles(db.Model):
     user_id = db.Column(db.Integer(), db.ForeignKey('users.id', ondelete='CASCADE'))
     role_id = db.Column(db.Integer(), db.ForeignKey('roles.id', ondelete='CASCADE'))
 
-# -- IMPORT JSON
-def db_init(db):
-    #db.drop_all()
-    #db.create_all()
-
-    file = open('app/doc/documentations.json', encoding='utf-8')
-    doc_json = json.load(file)
-    for x in doc_json:
-        # -- ADD CATEGORY
-        category = Category(x['category'])
-        db.session.add(category)
-        db.session.commit()
-
-        # -- ADD DOCUMENTATIONS
-        documentations = [ Documentation(category=category,**doc) for doc in x['documentations'] ]
-        for documentation in documentations:
-            db.session.add(documentation)
-        db.session.commit()
-
-        # -- ADD CONCEPTS
-        concepts = [ Concept(category=category,**doc) for doc in x['concepts'] ]
-        for concept in concepts:
-            db.session.add(concept)
-        db.session.commit()
-
-        # -- ADD CONCEPTS
-        faqs = [ Faq(category=category,**doc) for doc in x['faq'] ]
-        for faq in faqs:
-            db.session.add(faq)
-        db.session.commit()
-
-    lg.warning('Database initialized')

@@ -1,10 +1,22 @@
 from app import app
 from flask import render_template
-from app.models import Documentation, Category, Flux
+from app.models import Documentation, Category, Flux, Section
 from sqlalchemy import desc
 
 
 @app.route('/')
+def home():
+    sections = Section.query.all()
+    return render_template('home.html', sections=sections)
+
+
+@app.route('/<section_slug>')
+def section(section_slug):
+    section = Section.query.filter(Section.slug == section_slug).first()
+    return render_template('home.html', section=section)
+
+
+@app.route('/documentation')
 def documentation():
     categorys = Category.query.all()
     return render_template('documentation.html', categorys=categorys)

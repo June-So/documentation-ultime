@@ -1,7 +1,7 @@
 from app import app, db
 from flask import render_template, redirect, url_for, flash
 from .forms import CategoryForm, DocumentationForm
-from .models import Category, Documentation, Flux, db_init, TypeFlux, Tag, User
+from .models import Category, Documentation, Flux, TypeFlux, Tag, User
 from flask_user import login_required, UserManager, roles_required
 
 user_manager = UserManager(app, db, User)
@@ -59,13 +59,4 @@ def remove_category(id):
     return redirect(url_for('add_documentation'))
 
 
-
-""" 
-Initialisation de la base de données existante en V.0
-"""
-@app.route('/admin/init-db')
-@roles_required('Admin')
-def init_db():
-    db_init(db)
-    return redirect(url_for('add_documentation'))
 
