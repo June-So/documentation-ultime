@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{{ url_for('home') }}">Accueil</a>
+      <div class="collapse navbar-collapse" id="">
+            <ul class="navbar-nav mr-auto">
+                {% for section in get_sections() %}
+                  <li class="nav-item">
+                      <a class="nav-link {% if request.path == '/'+section.slug %}active{% endif %}" href="{{ url_for('section', section_slug=section.slug) }}">
+                          {{ section.name }}
+                      </a>
+                  </li>
+                {% endfor %}
+            </ul>
+  </div>
+        <p class="text-right">
+        <i class="fas fa-star"></i>
+        <a class="" href="{{ url_for('flux') }}">Flux d'actualité du site</a>
+    </p>
+</nav>

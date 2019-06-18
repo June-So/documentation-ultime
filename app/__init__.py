@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate, MigrateCommand
 import os
 from flask_bootstrap import Bootstrap
-from config_dev import POSTGRES
+from config import POSTGRES
 
 app = Flask(__name__)
 Bootstrap(app)
@@ -21,11 +21,11 @@ app.config['USER_ENABLE_EMAIL'] = False  # Disable email authentication
 app.config['USER_ENABLE_USERNAME'] = True  # Enable username authentication
 app.config['USER_REQUIRE_RETYPE_PASSWORD'] = False  # Simplify register form
 
-app.config['VERSION'] = 2.0
+app.config['VERSION'] = 1.1
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-from app import views, models
+from app import views, models, jinja
 from app import admin
 

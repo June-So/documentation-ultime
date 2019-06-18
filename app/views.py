@@ -13,7 +13,7 @@ def home():
 @app.route('/<section_slug>')
 def section(section_slug):
     section = Section.query.filter(Section.slug == section_slug).first()
-    return render_template('home.html', section=section)
+    return render_template('section.html', section=section)
 
 
 @app.route('/documentation')
@@ -35,9 +35,3 @@ def utility_processor():
         print(documentation)
         return documentation
     return dict(get_documentation=get_documentation)
-
-
-@app.route('/focus-<category>')
-def focus(category):
-    category = Category.query.filter_by(slug=category).first()
-    return render_template('category.html', category=category)

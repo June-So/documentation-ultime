@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h2 class="my-2">{{ section.name }}</h2>
+
+    <div class="row">
+        {% include 'includes/legend_tag.html' %}
+        {% for category in section.categorys %}
+        <div class="col-12 border border-dark mb-3">
+            {% include 'includes/category.html' %}
+        </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}

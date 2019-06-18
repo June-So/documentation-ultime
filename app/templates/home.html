@@ -2,21 +2,16 @@
 
 {% block body %}
     <h2>Accueil</h2>
-    <p> Bienvenue dans la documentation ultime ! Ce site recense les tutos essentiels à l'apprentissage des languages informatiques, des ressources pour la compréhension de concepts.</p>
+    <p> Bienvenue dans la documentation ultime ! Ce site recense des liens utiles qui vous permettrons de vous accompagner dans votre apprentissage de python dans le domaine de l'intelligence artificielle et du développement web.
+        Vous y trouverez des tutos essentiels pour votre apprentissage, des outils qui faciliteront votre quotidien de développeur, de la documentation à garder sous le coude en tout temps et des solutions aux problèmes techniques par lesquels on passe tous à un moment :).</p>
 
     <div class="row">
         {% for section in sections %}
-        <div class="col-4">
-            <h3>{{ section.id }} - <a href="{{ url_for('section',  section_slug=section.slug ) }}">{{ section.name }}</a></h3>
+        <div class="col-xs-12 col-md-4">
+            <h3><a href="{{ url_for('section',  section_slug=section.slug ) }}">{{ section.name }}</a></h3>
             <ul>
             {% for category in section.categorys %}
-                <li>{{ category.id }} - {{ category.name }}
-                    <ul>
-                        {% for documentation in category.documentations %}
-                        <li>{{ documentation.text }}</li>
-                        {% endfor %}
-                    </ul>
-                </li>
+                <li>{{ category.name }} </li>
             {% endfor %}
             </ul>
         </div>

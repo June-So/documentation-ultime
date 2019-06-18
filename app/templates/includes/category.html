@@ -1,0 +1,39 @@
+
+    <!-- En-tête Catégorie -->
+    <div class="row mb-0 bg-danger text-white">
+        <h2 class="col-9 col-md-10">{{ category.name }}</h2>
+    </div>
+
+<div class="row">
+
+    <div class="col-12">
+        <!-- DOCUMENTATIONS -->
+        <p class="p-3 m-0">
+          {% autoescape false %}
+            {% for link in category.documentations %}
+            <i class="{{ link.tag.i_class }}" alt="{{ link.tag.name }}"></i> <a href="{{ link.url }}" class="link-doc">{{ link.text }}</a> ({{ link.lang }}) - {{ link.source }}<br>
+            {% endfor %}
+          {% endautoescape %}
+        </p>
+
+        <!-- FAQ -->
+        {% if category.faqs %}
+            <div class="px-3">
+                <h3>F.A.Q</h3>
+
+                   {% for faq in category.faqs %}
+                    <p class="m-1">
+                       <a  data-toggle="collapse" href="#faq-{{ faq.id }}" role="button" aria-expanded="false" aria-controls="faq-{{ faq.id }}" class="link-faq">{{ faq.question }}</a><br>
+                    </p>
+                    <div class="collapse" id="faq-{{ faq.id }}">
+                        <p class="px-4">{% autoescape false %}{{ faq.answer }}{% endautoescape %}</p>
+                    </div>
+                    {% endfor %}
+            </div>
+        {% endif %}
+        </div>
+
+
+
+</div>
+

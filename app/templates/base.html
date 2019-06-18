@@ -8,7 +8,7 @@
         <script src="{{ url_for('static',filename="js/google-analytics.js") }}"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-        <link rel="stylesheet" href="{{ url_for('static',filename="css/style.css") }}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
 
@@ -20,18 +20,27 @@
       <!-- End Google Tag Manager (noscript) -->
 
       <!-- Header -->
-     <a href="{{ url_for('home') }}"><h1 class="text-center">DOCUMENTATION ULTIME</h1></a>
+     <div class="p-2 bg-danger ">
+        <a href="{{ url_for('home') }}"><h1 class="text-center text-white">DOCUMENTATION ULTIME</h1></a>
+     </div>
 
+     <!-- Navigation -->
+     {% include 'includes/navbar_section.html' %}
     <div class="container">
       {% block body %}
       {% endblock %}
     </div>
     <!-- FOOTER -->
-
-          <footer class="footer bg-dark text-white">
-            <a href="https://github.com/June-So/documentation-ultime"><i class="fab fa-github fa-1x"></i> Github</a> <small> v{{ config.VERSION }} - 2019</small>
+    <div class="container-fluid">
+          <footer class="footer bg-dark text-white row">
+               <div class="col-6">
+                    <a href="https://github.com/June-So/documentation-ultime"><i class="fab fa-github fa-1x"></i> Github</a> <small> v{{ config.VERSION }} - 2019</small>
+                </div>
+                <div class="text-right col-6">
+                    <a href="{{ url_for('documentation') }}">Voir tout les liens en une seule page</a>
+                </div>
           </footer>
-
+</div>
 
         <!-- SCRIPTS JS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

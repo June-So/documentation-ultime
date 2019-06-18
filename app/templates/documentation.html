@@ -1,42 +1,11 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    <p class="text-right">
-        <i class="fas fa-star"></i>
-        <a class="" href="{{ url_for('flux') }}">Flux d'actualité du site</a>
-    </p>
-    <div class="row">
+    <div class="row mt-2">
         {% for category in categorys %}
         <div class="col-12 border border-dark mb-3">
-            <!-- En-tête Catégorie -->
-            <div class="row mb-0 p-2 bg-danger text-white">
-                <h2 class="col-9 col-md-10">{{ category.name }}</h2>
-                <a href="{{ url_for('focus', category=category.slug) }}" class="col-2 col-md-1"><button class="btn btn-dark">More</button></a>
-            </div>
-            <!-- DOCUMENTATIONS -->
-            <p class="p-3 m-0">
-              {% autoescape false %}
-                {% for link in category.documentations %}
-                <i class="{{ link.tag.i_class }}"></i> <a href="{{ link.url }}" class="link-doc">{{ link.text }}</a> ({{ link.lang }}) - {{ link.source }}<br>
-                {% endfor %}
-              {% endautoescape %}
-            </p>
-            <!-- FAQ -->
-            {% if category.faqs %}
-                <div class="px-3">
-                    <h3>F.A.Q</h3>
-                    <p>
-                       {% for faq in category.faqs %}
-                           <a href="{{ url_for('focus', category=category.slug) }}#d-{{ faq.id }}" class="link-faq">{{ faq.question }}</a><br>
-                       {% endfor %}
-                    </p>
-                </div>
-            {% endif %}
+            {% include 'includes/category.html' %}
         </div>
         {% endfor %}
     </div>
-    <p class="text-right">
-        <i class="fas fa-star"></i>
-        <a class="" href="{{ url_for('flux') }}">Flux d'actualité du site</a>
-    </p>
 {% endblock %}
