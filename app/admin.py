@@ -1,7 +1,7 @@
 from app import app, db
 from flask import render_template, redirect, url_for, flash
 from .forms import CategoryForm, DocumentationForm
-from .models import Category, Documentation, Flux, TypeFlux, Tag, User
+from .models import Category, Documentation, Flux, TypeFlux, Tag, User, Section
 from flask_user import login_required, UserManager, roles_required
 
 user_manager = UserManager(app, db, User)
@@ -40,9 +40,10 @@ def add_documentation():
         flash('Documentation ajouté !')
         return redirect(url_for('add_documentation'))
 
-    form_category = CategoryForm()
+    form_category = CategoryForm.new()
     if form_category.validate_on_submit():
         new_category = Category(form_category.name.data)
+        new_category.section = Section.query.get(form_category.section.data)
         db.session.add(new_category)
         db.session.commit()
         return redirect(url_for('add_documentation'))

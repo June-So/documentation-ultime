@@ -1,12 +1,22 @@
 from flask_wtf import Form
 from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired
-from .models import Category, Tag
+from .models import Category, Tag, Section
 
 
 class CategoryForm(Form):
+    section = SelectField('section', coerce=int)
     name = StringField('catégorie', validators=[DataRequired()])
     submit = SubmitField('Enregistrer')
+
+    @classmethod
+    def new(cls):
+        # Instantiate the form
+        form = cls()
+
+        # Update the choices for the agency field
+        form.section.choices = [(section.id, section.name) for section in Section.query.order_by('name')]
+        return form
 
 
 class DocumentationForm(Form):

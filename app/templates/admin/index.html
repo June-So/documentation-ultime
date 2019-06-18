@@ -3,6 +3,7 @@
 {% block body %}
     <h1 class="text-center">Alimenter la Documentation</h1>
 
+<!-- message flasjh-->
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
         <ul class=flashes>
@@ -13,6 +14,7 @@
       {% endif %}
     {% endwith %}
 
+    <!-- categories -->
     <div class="row">
         <div class="col-4">
             <h2>Catégories</h2>
@@ -25,6 +27,7 @@
             </ul>
             <form method="POST" action="">
                 {{ form_category.csrf_token }}
+                {{ wtf.form_field(form_category.section) }}
                 {{ form_category.name.label }} {{ form_category.name(size=20) }}
                 {{ form_category.submit() }}
             </form>
