@@ -1,0 +1,970 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 11.2
+-- Dumped by pg_dump version 11.2
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: alembic_version; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.alembic_version (
+    version_num character varying(32) NOT NULL
+);
+
+
+ALTER TABLE public.alembic_version OWNER TO postgres;
+
+--
+-- Name: category; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.category (
+    id integer NOT NULL,
+    name character varying(42) NOT NULL,
+    slug character varying(42) NOT NULL,
+    section_id integer
+);
+
+
+ALTER TABLE public.category OWNER TO postgres;
+
+--
+-- Name: category_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.category_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.category_id_seq OWNER TO postgres;
+
+--
+-- Name: category_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.category_id_seq OWNED BY public.category.id;
+
+
+--
+-- Name: concept; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.concept (
+    id integer NOT NULL,
+    category_id integer NOT NULL,
+    name character varying(42) NOT NULL,
+    explain text
+);
+
+
+ALTER TABLE public.concept OWNER TO postgres;
+
+--
+-- Name: concept_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.concept_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.concept_id_seq OWNER TO postgres;
+
+--
+-- Name: concept_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.concept_id_seq OWNED BY public.concept.id;
+
+
+--
+-- Name: documentation; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.documentation (
+    id integer NOT NULL,
+    category_id integer NOT NULL,
+    tag_id integer,
+    url character varying(255) NOT NULL,
+    text character varying(255) NOT NULL,
+    lang character varying(12),
+    source character varying(255)
+);
+
+
+ALTER TABLE public.documentation OWNER TO postgres;
+
+--
+-- Name: documentation_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.documentation_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.documentation_id_seq OWNER TO postgres;
+
+--
+-- Name: documentation_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.documentation_id_seq OWNED BY public.documentation.id;
+
+
+--
+-- Name: faq; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.faq (
+    id integer NOT NULL,
+    category_id integer NOT NULL,
+    question character varying(255) NOT NULL,
+    answer text
+);
+
+
+ALTER TABLE public.faq OWNER TO postgres;
+
+--
+-- Name: faq_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.faq_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.faq_id_seq OWNER TO postgres;
+
+--
+-- Name: faq_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.faq_id_seq OWNED BY public.faq.id;
+
+
+--
+-- Name: flux; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.flux (
+    id integer NOT NULL,
+    date_create timestamp without time zone NOT NULL,
+    objet_id integer NOT NULL,
+    type_flux_id integer NOT NULL
+);
+
+
+ALTER TABLE public.flux OWNER TO postgres;
+
+--
+-- Name: flux_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.flux_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.flux_id_seq OWNER TO postgres;
+
+--
+-- Name: flux_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.flux_id_seq OWNED BY public.flux.id;
+
+
+--
+-- Name: roles; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.roles (
+    id integer NOT NULL,
+    name character varying(50)
+);
+
+
+ALTER TABLE public.roles OWNER TO postgres;
+
+--
+-- Name: roles_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.roles_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.roles_id_seq OWNER TO postgres;
+
+--
+-- Name: roles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.roles_id_seq OWNED BY public.roles.id;
+
+
+--
+-- Name: section; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.section (
+    id integer NOT NULL,
+    name character varying(42) NOT NULL
+);
+
+
+ALTER TABLE public.section OWNER TO postgres;
+
+--
+-- Name: section_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.section_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.section_id_seq OWNER TO postgres;
+
+--
+-- Name: section_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.section_id_seq OWNED BY public.section.id;
+
+
+--
+-- Name: tag; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.tag (
+    id integer NOT NULL,
+    name character varying(255) NOT NULL,
+    i_class character varying(255) NOT NULL
+);
+
+
+ALTER TABLE public.tag OWNER TO postgres;
+
+--
+-- Name: tag_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.tag_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.tag_id_seq OWNER TO postgres;
+
+--
+-- Name: tag_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.tag_id_seq OWNED BY public.tag.id;
+
+
+--
+-- Name: type_flux; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.type_flux (
+    id integer NOT NULL,
+    name character varying(255) NOT NULL
+);
+
+
+ALTER TABLE public.type_flux OWNER TO postgres;
+
+--
+-- Name: type_flux_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.type_flux_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.type_flux_id_seq OWNER TO postgres;
+
+--
+-- Name: type_flux_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.type_flux_id_seq OWNED BY public.type_flux.id;
+
+
+--
+-- Name: user_roles; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.user_roles (
+    id integer NOT NULL,
+    user_id integer,
+    role_id integer
+);
+
+
+ALTER TABLE public.user_roles OWNER TO postgres;
+
+--
+-- Name: user_roles_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.user_roles_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.user_roles_id_seq OWNER TO postgres;
+
+--
+-- Name: user_roles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.user_roles_id_seq OWNED BY public.user_roles.id;
+
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.users (
+    id integer NOT NULL,
+    username character varying(100) NOT NULL,
+    password character varying(255) DEFAULT ''::character varying NOT NULL,
+    email_confirmed_at timestamp without time zone,
+    is_active boolean DEFAULT true NOT NULL
+);
+
+
+ALTER TABLE public.users OWNER TO postgres;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.users_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.users_id_seq OWNER TO postgres;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
+
+
+--
+-- Name: category id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.category ALTER COLUMN id SET DEFAULT nextval('public.category_id_seq'::regclass);
+
+
+--
+-- Name: concept id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.concept ALTER COLUMN id SET DEFAULT nextval('public.concept_id_seq'::regclass);
+
+
+--
+-- Name: documentation id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.documentation ALTER COLUMN id SET DEFAULT nextval('public.documentation_id_seq'::regclass);
+
+
+--
+-- Name: faq id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.faq ALTER COLUMN id SET DEFAULT nextval('public.faq_id_seq'::regclass);
+
+
+--
+-- Name: flux id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.flux ALTER COLUMN id SET DEFAULT nextval('public.flux_id_seq'::regclass);
+
+
+--
+-- Name: roles id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.roles ALTER COLUMN id SET DEFAULT nextval('public.roles_id_seq'::regclass);
+
+
+--
+-- Name: section id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.section ALTER COLUMN id SET DEFAULT nextval('public.section_id_seq'::regclass);
+
+
+--
+-- Name: tag id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.tag ALTER COLUMN id SET DEFAULT nextval('public.tag_id_seq'::regclass);
+
+
+--
+-- Name: type_flux id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.type_flux ALTER COLUMN id SET DEFAULT nextval('public.type_flux_id_seq'::regclass);
+
+
+--
+-- Name: user_roles id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_roles ALTER COLUMN id SET DEFAULT nextval('public.user_roles_id_seq'::regclass);
+
+
+--
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
+
+
+--
+-- Data for Name: alembic_version; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.alembic_version (version_num) FROM stdin;
+210bdd4dde61
+\.
+
+
+--
+-- Data for Name: category; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.category (id, name, slug, section_id) FROM stdin;
+1	Convolutional Neural Network	convolutional-neural-network	1
+2	Natural Processing Language	natural-processing-language	1
+3	Série temporelle	serie-temporelle	1
+7	Flask	flask	3
+8	Django	django	3
+11	Entraînez-vous	entrainez-vous	4
+12	Tenez vous au courant	tenez-vous-au-courant	4
+9	Regex : Expression Régulière	regex-expression-réguliere	6
+5	SQL	sql	2
+13	ORM	orm	2
+4	Selenium/BeautifulSoup	selenium-beautifulsoup	6
+14	Code python	code-python	1
+6	Html / Css	html-css	5
+15	Général 	interface-general	3
+10	Général	dataviz-general	7
+\.
+
+
+--
+-- Data for Name: concept; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.concept (id, category_id, name, explain) FROM stdin;
+1	1	Convolution	
+2	1	Pooling	
+3	1	Filtre	
+4	2	Word Embbeding	Technique permettant d'obtenir des vecteurs qui conservent la similarité contextuelle des mots.
+5	2	Sentence Boundary Disambiguation	Segmentation de texte en phrases. Il s'agit de déterminer où commence et où s'arrête une phrase.
+6	2	Tokenisation	Principe de fractionner un texte en unité plus petites appelées tokens.
+7	2	Topic Modeling	Approche non supervisée où l’on essaye de faire apparaître les topics principaux d’un ensemble de textes puis de relier les topics aux textes.
+8	2	Part-Of-Speech Tagging	Consiste à associer à chaque mot d'un texte sa classe morphosyntaxique (nom, verbe, adjectif..) à partir de connaissances lexicales
+9	2	Names-Entity Recognition	Reconnaitre un certains type de concepts catégorisables (Noms propre, quantité, distances, valeurs, dates)
+10	3	Persistence	par exemple quand la météo du lendemain est identique à celle du jour
+11	3	techniques temporelles déterministes	L'analyse fréquentielle d’une série temporelle : un signal est approché par une somme de sinusoı̈dales (analyse de Fourier).<br>La décomposition d’une série temporelle en composantes tendancielle, cyclique, saisonnière et accidentelle.<br> La correction des variations saisonnières d’une série temporelle, qu’on étudiera, repose sur cette décomposition.
+12	5	Jointures	
+13	5	Clé étrangère	
+\.
+
+
+--
+-- Data for Name: documentation; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.documentation (id, category_id, tag_id, url, text, lang, source) FROM stdin;
+5	1	\N	http://scs.ryerson.ca/~aharley/vis/conv/flat.html	MNIST visualisation CNN	EN	Demo web
+9	3	\N	https://www.math.u-psud.fr/~goude/Materials/ProjetMLF/time_series.html	Détails série temporelle	FR	math u-psud
+27	10	\N	https://python-graph-gallery.com/	Référence ultime pour la visualisation de vos données	EN	Graph gallery
+28	11	\N	https://www.kaggle.com/	Kaggle	EN	Competition Machine Learning/Deep Learning
+29	11	\N	https://www.codewars.com/	Codewars	EN	Exercices et entraînements multi-langages
+30	11	\N	https://www.hackerrank.com/	HackerRank	EN	Exercices et entraînements multi-langages
+31	11	\N	https://www.codingame.com/start	Codingame	MULTI	Entraînements programmation multi-langage à travers des jeux
+1	1	2	https://medium.com/@CharlesCrouspeyre/comment-les-r%C3%A9seaux-de-neurones-%C3%A0-convolution-fonctionnent-b288519dbcf8	Comment les Réseaux de neurones à convolution fonctionnent	FR	Medium @Charles Crouspeyre
+2	1	2	https://stanford.edu/~shervine/l/fr/teaching/cs-230/pense-bete-reseaux-neurones-convolutionnels	Pense-bête de réseaux de neurones convolutionnels	MULTI	stanford.edu
+4	1	2	https://machinelearningmastery.com/how-to-load-convert-and-save-images-with-the-keras-api/	Charger des images avec Keras	EN	Machine Learning Mastery
+6	2	2	https://www.ekino.com/articles/introduction-nlp-partie-i	Introduction au NLP (Partie I)	FR	ekkino
+7	2	2	https://www.actuia.com/contribution/victorbigand/tutoriel-tal-pour-les-debutants-classification-de-texte/	Mini-tuto preprocessing	FR	ActuIa
+8	3	2	http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/_gs2a_timeseries.html	Séries temporelles	FR	Xavier Dupre
+10	4	3	https://selenium-python.readthedocs.io/index.html	Documentation Selenium	EN	Documentation officielle
+11	4	2	https://www.w3schools.com/xml/xpath_syntax.asp	Syntaxe Xpath	EN	W3Schools
+12	5	2	https://openclassrooms.com/fr/courses/1959476-administrez-vos-bases-de-donnees-avec-mysql	Si vous suivez correctement ce tuto, le SQL deviendra un jeu d'enfant	FR	Openclassroom - Administrez vos base de données
+14	6	2	https://openclassrooms.com/fr/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3	Tuto HTML/CSS, suivez le pour apprendre toutes les bases nécéssaires.	FR	OpenClassroom -  Apprenez à créer votre site web avec HTML5 et CSS3 
+17	7	2	https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world	The Flask Mega-Tutorial	EN	Blog - Miguel Grinberg
+3	1	2	https://www.codeastar.com/visualize-convolutional-neural-network/	Visualiser les couches	EN	Code A Star
+13	13	3	https://docs.sqlalchemy.org/en/latest/orm/tutorial.html	sqlAlchemy - Mapper ses classes	EN	Documentation officielle
+26	14	\N	https://chrisalbon.com/	Référence ultime d'exemples python pour le machine learning	EN	Chris Albon
+15	15	2	https://openclassrooms.com/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/912799-transmettez-des-donnees-avec-lurl	Transmettez des données avec l'URL	FR	OpenClassroom -  Concevez votre site web avec PHP et MySQL
+18	7	2	https://openclassrooms.com/fr/courses/4425066-concevez-un-site-avec-flask	Tuto: Concevez un site avec Flask	FR	Openclassroom
+19	7	3	http://flask-sqlalchemy.pocoo.org/2.3/	Documentation Flask-sqlAlchemy	EN	Documentation Officielle [<a href='https://media.readthedocs.org/pdf/flask-sqlalchemy/stable/flask-sqlalchemy.pdf'>PDF</a>]
+20	7	2	https://openclassrooms.com/fr/courses/1654786-creez-vos-applications-web-avec-flask/1655367-les-templates	Utiliser les templates flask	FR	OpenClassroom
+21	7	1	https://www.miniwebtool.com/django-secret-key-generator/	Secret Key Generator	EN	miniwebtool
+22	8	2	https://docs.djangoproject.com/fr/2.2/intro/	Tutoriel Django	FR	Documentation Officielle
+23	9	1	https://regex101.com/	Aide à la création de regex	EN	Outils avec documentation
+24	9	2	https://openclassrooms.com/fr/courses/235344-apprenez-a-programmer-en-python/233857-manipulez-les-expressions-regulieres	Apprenez à faire des regex (tuto non-testé)	FR	OpenClassroom - Apprenez à programmer en python
+25	9	2	https://openclassrooms.com/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/916990-les-expressions-regulieres-partie-1-2	Apprenez à faire des regex (version PHP, mais recommandé)	FR	OpenClassroom - Concevez votre site web avec PHP et MySQL
+52	6	1	https://fontawesome.com/icons?d=gallery&m=free	Bibliothèque d'icônes à intégrer en css	EN	FontAwesome
+53	6	1	https://htmlcolorcodes.com/fr/	Création de palette de couleurs html	MULTI	Html Color Codes
+16	15	2	https://openclassrooms.com/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/913099-transmettez-des-donnees-avec-les-formulaires	Transmettez des données avec les formulaires	FR	OpenClassroom -  Concevez votre site web avec PHP et MySQL
+\.
+
+
+--
+-- Data for Name: faq; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.faq (id, category_id, question, answer) FROM stdin;
+1	7	Mes images ne s'affichent pas.	Vérifiez que le chemin qui mène à vos images est le bon : Allez sur la page contenant les images que vous souhaitez afficher.<br> Faites un CTRL+U et localisez vos balises <img > (le chemin de l'attribut href doit correspondre à l'emplacement de votre fichier.)<br> Cliquez sur le lien pour voir le chemin complet apparaître dans la barre d'url.<br> L'adresse de votre serveur [http://127.0.0.1:5000/] est égal à [C:/Chemin/jusquau/dossier/racine/de/votre/projet].<br> Attention flask ne prend pas les chemin absolu ou relatif, vous devez passez par la fonction url_for() pour cela.
+2	7	Je n'arrive pas à installer de modules pour connecter ma bdd MySQL	pip install PyMySQL<br> Dans votre fichier app/__init__.py ajouter :<br>import pymysql<br>pymysql.install_as_MySQLdb()
+3	11	J'ai créé un fichier via kaggle, comment le récuperer ?	1 - Il est tout d'abord nécéssaire de commit votre kernel,<br> 2 - Retournez à la liste de vos kernels > choissisez le kernel concerné.<br> 3 - Dans la colonne de gauche clicquez sur "output", vous y trouverez vos fichiers.<br> 4 - Clicquez sur le fichier désiré. Faîtes un clic-droit sur l'icone de téléchargement > Enregistrer le lien sous.. ou Enregistrer la cible du lien sous..
+\.
+
+
+--
+-- Data for Name: flux; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.flux (id, date_create, objet_id, type_flux_id) FROM stdin;
+16	2019-04-30 00:35:57.759431	52	1
+17	2019-04-30 01:02:00.486017	53	1
+\.
+
+
+--
+-- Data for Name: roles; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.roles (id, name) FROM stdin;
+1	Admin
+\.
+
+
+--
+-- Data for Name: section; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.section (id, name) FROM stdin;
+1	Intelligence Artificielle
+2	Base de données
+4	Méthodes & Outils
+5	HTML / CSS / JS
+6	Extraction de données
+7	Data Visualisation
+3	Interface
+\.
+
+
+--
+-- Data for Name: tag; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.tag (id, name, i_class) FROM stdin;
+1	outils	fas fa-wrench
+2	apprentissage	fas fa-graduation-cap
+3	documentation-officiel	fas fa-book
+4	competition	fas fa-trophy
+\.
+
+
+--
+-- Data for Name: type_flux; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.type_flux (id, name) FROM stdin;
+1	DOCUMENTATION
+2	CONCEPT
+3	FAQ
+\.
+
+
+--
+-- Data for Name: user_roles; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.user_roles (id, user_id, role_id) FROM stdin;
+1	1	1
+\.
+
+
+--
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.users (id, username, password, email_confirmed_at, is_active) FROM stdin;
+1	admin	$2b$12$HlyIxtx4/IJlrpZEck5L6ulMA0LH4YWSJOHzOpMJ9NAXKoFFkzG7q	\N	t
+\.
+
+
+--
+-- Name: category_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.category_id_seq', 15, true);
+
+
+--
+-- Name: concept_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.concept_id_seq', 13, true);
+
+
+--
+-- Name: documentation_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.documentation_id_seq', 53, true);
+
+
+--
+-- Name: faq_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.faq_id_seq', 3, true);
+
+
+--
+-- Name: flux_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.flux_id_seq', 17, true);
+
+
+--
+-- Name: roles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.roles_id_seq', 1, true);
+
+
+--
+-- Name: section_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.section_id_seq', 7, true);
+
+
+--
+-- Name: tag_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.tag_id_seq', 4, true);
+
+
+--
+-- Name: type_flux_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.type_flux_id_seq', 3, true);
+
+
+--
+-- Name: user_roles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.user_roles_id_seq', 1, true);
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.users_id_seq', 1, true);
+
+
+--
+-- Name: alembic_version alembic_version_pkc; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.alembic_version
+    ADD CONSTRAINT alembic_version_pkc PRIMARY KEY (version_num);
+
+
+--
+-- Name: category category_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.category
+    ADD CONSTRAINT category_name_key UNIQUE (name);
+
+
+--
+-- Name: category category_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.category
+    ADD CONSTRAINT category_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: concept concept_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.concept
+    ADD CONSTRAINT concept_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: documentation documentation_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.documentation
+    ADD CONSTRAINT documentation_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: faq faq_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.faq
+    ADD CONSTRAINT faq_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: flux flux_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.flux
+    ADD CONSTRAINT flux_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: roles roles_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.roles
+    ADD CONSTRAINT roles_name_key UNIQUE (name);
+
+
+--
+-- Name: roles roles_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.roles
+    ADD CONSTRAINT roles_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: section section_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.section
+    ADD CONSTRAINT section_name_key UNIQUE (name);
+
+
+--
+-- Name: section section_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.section
+    ADD CONSTRAINT section_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tag tag_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.tag
+    ADD CONSTRAINT tag_name_key UNIQUE (name);
+
+
+--
+-- Name: tag tag_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.tag
+    ADD CONSTRAINT tag_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: type_flux type_flux_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.type_flux
+    ADD CONSTRAINT type_flux_name_key UNIQUE (name);
+
+
+--
+-- Name: type_flux type_flux_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.type_flux
+    ADD CONSTRAINT type_flux_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: user_roles user_roles_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_roles
+    ADD CONSTRAINT user_roles_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users users_username_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT users_username_key UNIQUE (username);
+
+
+--
+-- Name: category category_section_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.category
+    ADD CONSTRAINT category_section_id_fkey FOREIGN KEY (section_id) REFERENCES public.section(id);
+
+
+--
+-- Name: concept concept_category_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.concept
+    ADD CONSTRAINT concept_category_id_fkey FOREIGN KEY (category_id) REFERENCES public.category(id);
+
+
+--
+-- Name: documentation documentation_category_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.documentation
+    ADD CONSTRAINT documentation_category_id_fkey FOREIGN KEY (category_id) REFERENCES public.category(id);
+
+
+--
+-- Name: documentation documentation_tag_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.documentation
+    ADD CONSTRAINT documentation_tag_id_fkey FOREIGN KEY (tag_id) REFERENCES public.tag(id);
+
+
+--
+-- Name: faq faq_category_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.faq
+    ADD CONSTRAINT faq_category_id_fkey FOREIGN KEY (category_id) REFERENCES public.category(id);
+
+
+--
+-- Name: flux flux_type_flux_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.flux
+    ADD CONSTRAINT flux_type_flux_id_fkey FOREIGN KEY (type_flux_id) REFERENCES public.type_flux(id);
+
+
+--
+-- Name: user_roles user_roles_role_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_roles
+    ADD CONSTRAINT user_roles_role_id_fkey FOREIGN KEY (role_id) REFERENCES public.roles(id) ON DELETE CASCADE;
+
+
+--
+-- Name: user_roles user_roles_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_roles
+    ADD CONSTRAINT user_roles_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(id) ON DELETE CASCADE;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

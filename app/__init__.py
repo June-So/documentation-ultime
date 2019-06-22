@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate, MigrateCommand
 import os
 from flask_bootstrap import Bootstrap
-from config import POSTGRES
+from SECRET import POSTGRES
 
 app = Flask(__name__)
 Bootstrap(app)
